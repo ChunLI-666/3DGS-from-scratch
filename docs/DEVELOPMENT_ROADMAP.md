@@ -41,19 +41,26 @@
 
 ## Phase 2: 3DGS + SLAM - Task Breakdown
 
-### Notebooks to Create
+### Completed
+
+| Task | Status | Notes |
+|------|--------|-------|
+| Notebook 00: Overview | Done | 3DGS + SLAM paradigm introduction |
+| Notebook 01: SLAM Basics | Done | VO, BA, loop closure, keyframe selection |
+| Notebook 02: SplaTAM Architecture | Done | Tracking + mapping system design |
+| Notebook 03: Map Initialization | Done | Depth-guided Gaussian placement |
+| src/slam module | Done | keyframe.py, tracking.py, mapping.py |
+
+### In Progress
 
 | Notebook | Topic | Key Concepts |
 |----------|-------|--------------|
-| 00 | Overview | SLAM + 3DGS integration paradigm |
-| 01 | SLAM Basics Review | VO, BA, loop closure |
-| 02 | SplaTAM Architecture | Tracking + Mapping with Gaussians |
-| 03 | Gaussian Map Initialization | From SLAM keyframes |
-| 04 | Online Optimization | Incremental training |
-| 05 | Keyframe Management | Selection and pruning |
-| 06 | SplaTAM Code Walkthrough | Official implementation |
-| 07 | GS-SLAM Comparison | Alternative approach |
-| 08 | Custom Dataset SLAM | Running on your own data |
+| 04 | Camera Tracking | Render-and-compare pose optimization |
+| 05 | Online Optimization | Incremental Gaussian training |
+| 06 | Keyframe Management | Selection and pruning strategies |
+| 07 | SplaTAM Code Walkthrough | Official implementation analysis |
+| 08 | MonoGS Comparison | Monocular approach |
+| 09 | Custom Dataset SLAM | Running on your own data |
 
 ### Repositories to Integrate
 
@@ -153,16 +160,16 @@
 
 ### Immediate Next Steps
 
-1. **Phase 2: 3DGS + SLAM**
-   - SLAM basics review
-   - SplaTAM architecture walkthrough
-   - Integration tutorials
+1. **Phase 2: 3DGS + SLAM** (In Progress)
+   - Complete remaining notebooks (04-09)
+   - Integrate SplaTAM and MonoGS examples
+   - Add real dataset processing
 
 ### Medium-term Goals
 
-1. Begin Phase 2 development
-2. Integrate SplaTAM and MonoGS
-3. Create SLAM integration tutorials
+1. Complete Phase 2 development (notebooks 04-09)
+2. Integrate SplaTAM and MonoGS repositories
+3. Create end-to-end SLAM demos
 4. Add Docker configuration
 5. Set up CI/CD for testing
 

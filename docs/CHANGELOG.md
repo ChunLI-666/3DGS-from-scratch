@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2026-02-12
+
+### Added
+
+#### Notebooks (Phase 2 Progress)
+- `notebooks/phase2/01_slam_basics.ipynb`: SLAM Fundamentals Review
+  - Visual Odometry (VO) concepts and implementation
+  - Feature-based vs Direct methods comparison
+  - Camera pose representation (SE(3), quaternions, 6D rotation)
+  - Bundle Adjustment demonstration with PyTorch
+  - Loop closure detection and correction
+  - Keyframe selection strategies
+  - Covisibility graph construction
+- `notebooks/phase2/02_splatam_architecture.ipynb`: SplaTAM System Architecture
+  - Complete system architecture overview
+  - Configuration classes (TrackingConfig, MappingConfig, KeyframeConfig)
+  - GaussianMap class for SLAM
+  - CameraTracker with 6D+3D pose parameterization
+  - GaussianMapper with depth unprojection
+  - Silhouette-guided densification concept
+  - Complete SplaTAMSystem integration
+- `notebooks/phase2/03_map_initialization.ipynb`: Gaussian Map Initialization
+  - Camera model review (projection/unprojection)
+  - Depth-guided Gaussian placement
+  - Scale estimation (basic and adaptive)
+  - RGB to SH color conversion
+  - Opacity initialization (logit parameterization)
+  - Complete GaussianInitializer class
+  - RGB-D vs monocular initialization comparison
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` with Phase 2 progress
+
+---
+
 ## [0.4.0] - 2026-02-12
 
 ### Added
