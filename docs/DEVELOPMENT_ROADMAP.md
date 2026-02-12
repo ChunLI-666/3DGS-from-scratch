@@ -6,7 +6,7 @@
 
 ## Phase 1: 3DGS Foundation - Development Status
 
-### Completed (Week 1-2)
+### Completed (Week 1-3)
 
 | Task | Status | Notes |
 |------|--------|-------|
@@ -14,6 +14,7 @@
 | src/gaussian module | Done | gaussian_model.py, covariance.py, projection.py |
 | src/visualization module | Done | gaussian_viz.py, training_viz.py, interactive_plots.py |
 | src/rendering module | Done | rasterizer.py, alpha_blending.py, differentiable_render.py |
+| src/spherical_harmonics module | Done | sh_utils.py with SH evaluation and utilities |
 | Environment scripts | Done | setup_env.sh, install_official_3dgs.sh |
 | Notebook 00: Environment Setup | Done | Full environment check and setup |
 | Notebook 01: Gaussian Basics | Done | 1D/2D/3D Gaussians with visualization |
@@ -21,14 +22,9 @@
 | Notebook 03: Projection & Splatting | Done | Camera models, projection Jacobian, splatting pipeline |
 | Notebook 04: Differentiable Rendering | Done | Gradient flow, optimization demos, loss functions |
 | Notebook 05: Alpha Blending | Done | Volume rendering, transmittance, front-to-back blending |
-
-### In Progress (Week 3)
-
-| Task | Status | Priority |
-|------|--------|----------|
-| Notebook 06: Spherical Harmonics | Pending | High |
-| Notebook 07: Adaptive Density Control | Pending | High |
-| Notebook 08: Training Pipeline | Pending | High |
+| Notebook 06: Spherical Harmonics | Done | SH basis functions, view-dependent color, optimization |
+| Notebook 07: Adaptive Density Control | Done | Splitting, cloning, pruning, densification controller |
+| Notebook 08: Training Pipeline | Done | Complete training loop, loss functions, LR scheduling |
 
 ### Planned (Week 4-6)
 
@@ -36,7 +32,6 @@
 |------|--------|----------|
 | Notebook 09: Official Code Walkthrough | Pending | Medium |
 | Notebook 10: Custom Data Training | Pending | Medium |
-| src/spherical_harmonics module | Pending | Medium |
 | src/training module | Pending | High |
 | Docker configuration | Pending | Low |
 | CI/CD for notebook testing | Pending | Low |
@@ -157,28 +152,23 @@
 
 ### Immediate Next Steps (This Week)
 
-1. **Notebook 06: Spherical Harmonics**
-   - SH basis functions
-   - View-dependent color encoding
-   - Implementation in PyTorch
+1. **Notebook 09: Official Code Walkthrough**
+   - 3DGS official repository structure
+   - CUDA rasterizer implementation
+   - Integration with COLMAP
 
-2. **Notebook 07: Adaptive Density Control**
-   - Gaussian splitting and cloning
-   - Pruning low-opacity Gaussians
-   - Densification strategies
-
-3. **Notebook 08: Training Pipeline**
-   - Complete training loop
-   - Loss computation
-   - Optimization scheduling
+2. **Notebook 10: Custom Data Training**
+   - Preparing custom datasets
+   - Running training on real images
+   - Evaluation metrics
 
 ### Medium-term Goals (Next 2 Weeks)
 
-1. Complete Phase 1 notebooks (06-10)
-2. Implement spherical_harmonics module
-3. Implement training module
-4. Add Docker configuration
-5. Set up CI/CD for testing
+1. Complete Phase 1 notebooks (09-10)
+2. Implement training module
+3. Add Docker configuration
+4. Set up CI/CD for testing
+5. Begin Phase 2 development
 
 ### Long-term Goals (Next Month)
 

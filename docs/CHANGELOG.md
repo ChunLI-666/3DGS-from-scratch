@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2026-02-12
+
+### Added
+
+#### Notebooks (Phase 1 Complete)
+- `06_spherical_harmonics.ipynb`: Spherical Harmonics for view-dependent color
+  - SH basis function visualization (degrees 0-3)
+  - SH evaluation implementation in PyTorch
+  - RGB to SH and SH to RGB conversion
+  - View direction computation
+  - SH coefficient optimization demo
+  - Degree trade-offs analysis
+- `07_adaptive_density_control.ipynb`: Adaptive Gaussian densification
+  - Gradient-based densification criterion
+  - Gaussian splitting for large Gaussians
+  - Gaussian cloning for small Gaussians
+  - Pruning based on opacity and scale
+  - Complete DensificationController class
+  - Official 3DGS schedule explanation
+- `08_training_pipeline.ipynb`: Complete training pipeline
+  - GaussianModel class with all parameters
+  - Simple2DRenderer for demonstration
+  - Loss functions (L1, SSIM, D-SSIM)
+  - Learning rate scheduling
+  - Complete training loop implementation
+  - Training on synthetic target images
+
+#### Source Code Modules
+- `src/spherical_harmonics/sh_utils.py`
+  - SH constants (degrees 0-3)
+  - `eval_sh()`: Evaluate SH at view directions
+  - `rgb_to_sh()` / `sh_to_rgb()`: Conversion utilities
+  - `initialize_sh_from_rgb()`: Initialize SH from colors
+  - `get_direction_from_camera()`: Compute view directions
+  - `visualize_sh_basis()`: Generate visualization data
+  - `SphericalHarmonicsEncoder`: nn.Module wrapper
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` with completed Phase 1 core notebooks
+
+---
+
 ## [0.2.0] - 2026-02-12
 
 ### Added
