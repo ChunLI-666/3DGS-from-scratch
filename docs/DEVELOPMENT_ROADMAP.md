@@ -6,7 +6,7 @@
 
 ## Phase 1: 3DGS Foundation - Development Status
 
-### Completed (Week 1-3)
+### Completed (Phase 1 Complete)
 
 | Task | Status | Notes |
 |------|--------|-------|
@@ -25,16 +25,17 @@
 | Notebook 06: Spherical Harmonics | Done | SH basis functions, view-dependent color, optimization |
 | Notebook 07: Adaptive Density Control | Done | Splitting, cloning, pruning, densification controller |
 | Notebook 08: Training Pipeline | Done | Complete training loop, loss functions, LR scheduling |
+| Notebook 09: Official Code Walkthrough | Done | Repository structure, CUDA rasterizer, COLMAP integration |
+| Notebook 10: Custom Data Training | Done | Image capture, COLMAP, training, evaluation |
 
-### Planned (Week 4-6)
+### Future Improvements
 
 | Task | Status | Priority |
 |------|--------|----------|
-| Notebook 09: Official Code Walkthrough | Pending | Medium |
-| Notebook 10: Custom Data Training | Pending | Medium |
-| src/training module | Pending | High |
+| src/training module | Pending | Medium |
 | Docker configuration | Pending | Low |
 | CI/CD for notebook testing | Pending | Low |
+| Video tutorials | Pending | Low |
 
 ---
 
@@ -150,32 +151,26 @@
 
 ## Development Priorities
 
-### Immediate Next Steps (This Week)
+### Immediate Next Steps
 
-1. **Notebook 09: Official Code Walkthrough**
-   - 3DGS official repository structure
-   - CUDA rasterizer implementation
-   - Integration with COLMAP
+1. **Phase 2: 3DGS + SLAM**
+   - SLAM basics review
+   - SplaTAM architecture walkthrough
+   - Integration tutorials
 
-2. **Notebook 10: Custom Data Training**
-   - Preparing custom datasets
-   - Running training on real images
-   - Evaluation metrics
-
-### Medium-term Goals (Next 2 Weeks)
-
-1. Complete Phase 1 notebooks (09-10)
-2. Implement training module
-3. Add Docker configuration
-4. Set up CI/CD for testing
-5. Begin Phase 2 development
-
-### Long-term Goals (Next Month)
+### Medium-term Goals
 
 1. Begin Phase 2 development
-2. Integrate official 3DGS repository
-3. Create video tutorials
-4. Build community contribution guidelines
+2. Integrate SplaTAM and MonoGS
+3. Create SLAM integration tutorials
+4. Add Docker configuration
+5. Set up CI/CD for testing
+
+### Long-term Goals
+
+1. Complete Phases 2-6
+2. Create video tutorials
+3. Build community contribution guidelines
 
 ---
 

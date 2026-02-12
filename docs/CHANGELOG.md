@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-02-12
+
+### Added
+
+#### Notebooks (Phase 1 Complete)
+- `09_official_code_walkthrough.ipynb`: Official 3DGS code analysis
+  - Repository structure overview
+  - GaussianModel class analysis
+  - CUDA rasterizer architecture (tile-based rendering)
+  - Forward and backward pass explanation
+  - Training loop walkthrough (train.py)
+  - COLMAP integration details
+  - Optimizer configuration
+  - Densification implementation
+  - Rendering pipeline
+  - Key files summary
+- `10_custom_data_training.ipynb`: Training on custom data
+  - Image capture guidelines and best practices
+  - Dataset directory structure
+  - COLMAP processing pipeline
+  - Using official convert.py
+  - Training commands and parameters
+  - Rendering trained models
+  - Evaluation metrics (PSNR, SSIM, LPIPS)
+  - Troubleshooting guide
+  - Complete workflow example
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` marking Phase 1 as complete
+- Phase 2 development now prioritized
+
+---
+
 ## [0.3.0] - 2026-02-12
 
 ### Added
