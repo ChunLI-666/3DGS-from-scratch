@@ -6,34 +6,34 @@
 
 ## Phase 1: 3DGS Foundation - Development Status
 
-### Completed (Week 1)
+### Completed (Week 1-2)
 
 | Task | Status | Notes |
 |------|--------|-------|
 | Repository structure | Done | Created complete directory layout |
 | src/gaussian module | Done | gaussian_model.py, covariance.py, projection.py |
 | src/visualization module | Done | gaussian_viz.py, training_viz.py, interactive_plots.py |
+| src/rendering module | Done | rasterizer.py, alpha_blending.py, differentiable_render.py |
 | Environment scripts | Done | setup_env.sh, install_official_3dgs.sh |
 | Notebook 00: Environment Setup | Done | Full environment check and setup |
 | Notebook 01: Gaussian Basics | Done | 1D/2D/3D Gaussians with visualization |
+| Notebook 02: 3D Gaussian Math | Done | Covariance decomposition, quaternions, Gaussian3D class |
+| Notebook 03: Projection & Splatting | Done | Camera models, projection Jacobian, splatting pipeline |
+| Notebook 04: Differentiable Rendering | Done | Gradient flow, optimization demos, loss functions |
+| Notebook 05: Alpha Blending | Done | Volume rendering, transmittance, front-to-back blending |
 
-### In Progress (Week 2-3)
+### In Progress (Week 3)
 
 | Task | Status | Priority |
 |------|--------|----------|
-| Notebook 02: 3D Gaussian Math | Pending | High |
-| Notebook 03: Projection & Splatting | Pending | High |
-| Notebook 04: Differentiable Rendering | Pending | High |
-| Notebook 05: Alpha Blending | Pending | Medium |
-| src/rendering module | Pending | High |
+| Notebook 06: Spherical Harmonics | Pending | High |
+| Notebook 07: Adaptive Density Control | Pending | High |
+| Notebook 08: Training Pipeline | Pending | High |
 
 ### Planned (Week 4-6)
 
 | Task | Status | Priority |
 |------|--------|----------|
-| Notebook 06: Spherical Harmonics | Pending | Medium |
-| Notebook 07: Adaptive Density Control | Pending | Medium |
-| Notebook 08: Training Pipeline | Pending | High |
 | Notebook 09: Official Code Walkthrough | Pending | Medium |
 | Notebook 10: Custom Data Training | Pending | Medium |
 | src/spherical_harmonics module | Pending | Medium |
@@ -157,26 +157,28 @@
 
 ### Immediate Next Steps (This Week)
 
-1. **Notebook 02: 3D Gaussian Math**
-   - Formal covariance decomposition
-   - PyTorch implementation details
-   - Interactive 3D visualization
+1. **Notebook 06: Spherical Harmonics**
+   - SH basis functions
+   - View-dependent color encoding
+   - Implementation in PyTorch
 
-2. **Notebook 03: Projection & Splatting**
-   - Camera models
-   - 3D to 2D projection
-   - Jacobian computation
+2. **Notebook 07: Adaptive Density Control**
+   - Gaussian splitting and cloning
+   - Pruning low-opacity Gaussians
+   - Densification strategies
 
-3. **src/rendering/rasterizer.py**
-   - Pure Python rasterizer (educational)
-   - Step-by-step rendering
+3. **Notebook 08: Training Pipeline**
+   - Complete training loop
+   - Loss computation
+   - Optimization scheduling
 
 ### Medium-term Goals (Next 2 Weeks)
 
-1. Complete Phase 1 notebooks (04-10)
-2. Implement complete src modules
-3. Add Docker configuration
-4. Set up CI/CD for testing
+1. Complete Phase 1 notebooks (06-10)
+2. Implement spherical_harmonics module
+3. Implement training module
+4. Add Docker configuration
+5. Set up CI/CD for testing
 
 ### Long-term Goals (Next Month)
 

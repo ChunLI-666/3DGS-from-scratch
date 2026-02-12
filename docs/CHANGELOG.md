@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] - 2026-02-12
+
+### Added
+
+#### Notebooks (Phase 1 Core)
+- `02_3d_gaussian_math.ipynb`: 3D Gaussian ellipsoid mathematics
+  - Covariance matrix decomposition: Σ = RSS^TR^T
+  - Quaternion to rotation matrix conversion
+  - Complete Gaussian3D class with gradient support
+  - Interactive 3D visualization
+- `03_projection_splatting.ipynb`: Projection and splatting
+  - Pinhole camera model and intrinsic/extrinsic parameters
+  - 3D to 2D point projection
+  - Projection Jacobian derivation and implementation
+  - Covariance projection for Gaussian splatting
+  - Complete splatting pipeline
+- `04_differentiable_rendering.ipynb`: Differentiable rendering
+  - Why differentiable rendering is essential for 3DGS
+  - Gradient flow through rendering pipeline
+  - Single and multiple Gaussian optimization demos
+  - Loss functions (MSE, SSIM, D-SSIM)
+- `05_alpha_blending.ipynb`: Alpha blending and volume rendering
+  - Volume rendering equation
+  - Transmittance computation
+  - Front-to-back alpha blending
+  - Early termination for efficiency
+  - Gradient computation through blending
+
+#### Source Code Modules
+- `src/rendering/`
+  - `rasterizer.py`: SimpleRasterizer and TileBasedRasterizer classes
+  - `alpha_blending.py`: Front-to-back alpha compositing
+  - `differentiable_render.py`: DifferentiableRenderer and GaussianRenderer classes
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` with completed tasks
+
+---
+
 ## [0.1.0] - 2026-02-12
 
 ### Added
