@@ -101,18 +101,31 @@
 
 ## Phase 4: Feed-forward Gaussian - Task Breakdown
 
-### Notebooks to Create
+### Completed
 
-| Notebook | Topic | Key Concepts |
-|----------|-------|--------------|
-| 00 | Overview | From optimization to prediction |
-| 01 | Cost Volume Basics | MVS foundations |
-| 02 | Epipolar Geometry | Geometric constraints |
-| 03 | pixelSplat Architecture | Epipolar-based prediction |
-| 04 | MVSplat Architecture | Cost volume approach |
-| 05 | Comparison Study | pixelSplat vs MVSplat |
-| 06 | Code Walkthrough | Both implementations |
-| 07 | DepthSplat | Latest advances |
+| Task | Status | Notes |
+|------|--------|-------|
+| Development Spec | Done | docs/Phase4_Development_Spec.md |
+| Notebook 00: Overview | Done | Paradigm shift, method landscape, toy demo |
+| src/feedforward module | Done | cost_volume.py, pixel_aligned.py, gaussian_predictor.py |
+| Notebook 01: Cost Volume | Done | MVS, plane sweeping, homography warp, soft argmin |
+| Notebook 02: Pixel-aligned Gaussians | Done | Back-projection, structured layout, multi-view merge |
+| Notebook 03: MVSplat Architecture | Done | U-Net encoder, 3D CNN, prediction heads, forward pass |
+| Notebook 04: pixelSplat | Done | Epipolar cross-attention, implicit geometry, comparison |
+| Notebook 05: Training & Loss | Done | L1+SSIM+LPIPS, training loop, evaluation metrics |
+| Notebook 06: MVSplat Code Walkthrough | Done | Official repo structure, model definition, data pipeline, training analysis |
+| Notebook 07: Inference & Evaluation | Done | Inference pipeline, PSNR/SSIM/LPIPS metrics, speed benchmarking, failure cases |
+| Notebook 08: DepthSplat & 2025 Advances | Done | Depth priors (Depth Anything V2), adaptive planes, single-image 3D, multi-view scaling |
+| Notebook 09: MVSplat vs pixelSplat | Done | Architecture comparison, benchmarks, qualitative analysis, decision framework |
+
+### Phase 4 Complete ✓
+
+### Key Source Modules
+
+- `src/feedforward/`: Feed-forward 3DGS utilities
+  - `cost_volume.py`: Plane sweeping, cost volume, soft argmin
+  - `pixel_aligned.py`: Pixel-aligned Gaussian representation
+  - `gaussian_predictor.py`: Neural prediction heads
 
 ### Repositories to Integrate
 
@@ -165,13 +178,19 @@
    - Integrate SplaTAM and MonoGS examples
    - Add real dataset processing
 
+2. **Phase 4: Feed-forward Gaussian** (In Progress)
+   - Complete remaining notebooks (01-09)
+   - Integrate MVSplat and pixelSplat examples
+   - Add RE10K / ACID dataset processing
+
 ### Medium-term Goals
 
 1. Complete Phase 2 development (notebooks 04-09)
-2. Integrate SplaTAM and MonoGS repositories
-3. Create end-to-end SLAM demos
-4. Add Docker configuration
-5. Set up CI/CD for testing
+2. Complete Phase 4 development (notebooks 01-09)
+3. Start Phase 3 (DUSt3R) development
+4. Integrate external repositories
+5. Add Docker configuration
+6. Set up CI/CD for testing
 
 ### Long-term Goals
 
@@ -183,7 +202,7 @@
 
 ## Notes
 
-- Development follows the spec in `docs/Phase1_Development_Spec.md`
+- Development follows the specs in `docs/Phase1_Development_Spec.md`, `docs/Phase2_Development_Spec.md`, `docs/Phase4_Development_Spec.md`
 - Each notebook should be testable in Google Colab
 - Code should be educational first, optimized second
 - Visualizations are critical for understanding

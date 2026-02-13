@@ -2,6 +2,153 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2026-02-13
+
+### Added
+
+#### Notebooks (Phase 4 Complete - Notebooks 06-09)
+- `notebooks/phase4/06_mvsplat_code_walkthrough.ipynb`: MVSplat Code Walkthrough
+  - Official MVSplat repository structure analysis
+  - Model definition walkthrough (encoder_mvsplat.py, depth_predictor_multiview.py)
+  - Gaussian activation functions (sigmoid, exp, normalize) with code
+  - Data loading pipeline (RE10K format, camera parameter parsing)
+  - View sampling strategy (50-90% overlap) with visualization
+  - Training script analysis (PyTorch Lightning + Hydra config)
+  - Official training hyperparameters (AdamW, lr=1.5e-4, 300K steps)
+  - Inference pipeline timing breakdown (~25ms, 40 FPS)
+  - Simplified vs official implementation comparison table
+- `notebooks/phase4/07_inference_evaluation.ipynb`: Inference & Evaluation
+  - Complete inference pipeline (preprocess → forward → Gaussians → render)
+  - Image quality metrics implementation (PSNR, SSIM, approximate LPIPS)
+  - Published benchmark results comparison (pixelSplat, MVSplat, DepthSplat)
+  - Speed benchmarking at multiple resolutions (32x32 to 256x256)
+  - Failure case analysis (textureless, repetitive, reflections, wide baseline)
+  - Depth visualization and Gaussian quality assessment
+- `notebooks/phase4/08_depthsplat_2025_advances.ipynb`: DepthSplat & 2025 Advances
+  - Monocular depth prior revolution (MiDaS → DPT → Depth Anything V2)
+  - DepthSplat architecture: depth-guided adaptive plane sampling
+  - Depth prior encoder and feature fusion implementation
+  - Scale-shift alignment for monocular depth integration
+  - Single-image 3D methods survey (Splatt3R, Flash3D, LGM, GRM)
+  - Multi-view scaling analysis (O(N) to O(N²) complexity)
+  - Connection to VGGT (Phase 5 preview)
+  - 2025 trends: video-based, dynamic scenes, language-guided 3DGS
+  - Comprehensive 2024-2025 methods benchmark table
+- `notebooks/phase4/09_mvsplat_vs_pixelsplat_comparison.ipynb`: Comprehensive Comparison
+  - Side-by-side architecture diagrams (Cost Volume vs Epipolar Attention)
+  - Detailed component comparison table (9 dimensions)
+  - Computational complexity analysis (FLOPs, memory, speed scaling)
+  - Quantitative benchmarks across RE10K, ACID, DTU datasets
+  - Performance gap analysis with statistical breakdown
+  - Qualitative comparison by scene type (6 categories with scoring)
+  - Failure mode comparison (method-specific vs shared)
+  - Decision tree for method selection
+  - Practical selection checklist
+  - Experimental side-by-side with simplified models
+  - Phase 4 complete knowledge map and summary
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md`: Phase 4 marked as complete (all 10 notebooks done)
+- Updated `CHANGELOG.md` with Phase 4 completion
+
+---
+
+## [0.7.0] - 2026-02-13
+
+### Added
+
+#### Notebooks (Phase 4 Core - Notebooks 01-05)
+- `notebooks/phase4/01_cost_volume_plane_sweeping.ipynb`: Cost Volume & Plane Sweeping
+  - Multi-View Stereo (MVS) fundamentals and stereo matching
+  - Plane Sweeping algorithm with depth hypothesis sampling
+  - Homography warping step-by-step implementation
+  - Cost Volume construction and visualization
+  - Soft argmin depth regression with temperature analysis
+  - Integration with `src/feedforward.CostVolumeBuilder`
+- `notebooks/phase4/02_pixel_aligned_gaussians.ipynb`: Pixel-aligned Gaussian Representation
+  - Free-form vs pixel-aligned Gaussian comparison
+  - Depth-to-3D back-projection implementation
+  - Creating pixel-aligned Gaussians from predicted depth and features
+  - Multi-view Gaussian merging with `PixelAlignedGaussians`
+  - Connection to surfel mapping in SLAM
+- `notebooks/phase4/03_mvsplat_architecture.ipynb`: MVSplat Architecture Deep Dive
+  - Complete architecture diagram and data flow
+  - Simplified U-Net feature encoder (shared Siamese weights)
+  - Cost Volume processing with 3D CNN
+  - Gaussian prediction heads (depth, scale, rotation, opacity)
+  - Complete forward pass with tensor shape tracing
+  - Multi-view Gaussian merging demonstration
+  - Comparison with official MVSplat implementation
+- `notebooks/phase4/04_pixelsplat_implicit_geometry.ipynb`: pixelSplat & Implicit Geometry
+  - Explicit vs implicit geometry learning comparison
+  - Epipolar geometry review and visualization
+  - Epipolar cross-attention mechanism implementation
+  - Attention map visualization and interpretation
+  - Complete SimplifiedPixelSplat architecture
+  - Computational cost comparison (MVSplat vs pixelSplat)
+  - Strengths/weaknesses analysis and when-to-use guide
+- `notebooks/phase4/05_training_loss_design.ipynb`: Feed-forward Training & Loss Design
+  - Training paradigm comparison (per-scene vs feed-forward)
+  - Synthetic dataset implementation (RE10K-style)
+  - L1, SSIM, LPIPS loss functions with educational implementations
+  - Combined loss with configurable weights
+  - Complete training loop with toy model
+  - Evaluation metrics (PSNR, SSIM, LPIPS) with benchmarks
+  - Learning rate schedules (warmup + cosine decay)
+  - Supervised vs self-supervised training discussion
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` with notebooks 01-05 completion
+- Updated `CHANGELOG.md` with Phase 4 progress
+
+---
+
+## [0.6.0] - 2026-02-12
+
+### Added
+
+#### Phase 4: Feed-forward Gaussian Splatting
+- `docs/Phase4_Development_Spec.md`: Complete development specification
+  - 10 notebooks planned (00-09)
+  - Learning objectives: MVSplat, pixelSplat, DepthSplat
+  - Source module specification (src/feedforward)
+  - Dataset and configuration specifications
+
+#### Notebooks (Phase 4 Start)
+- `notebooks/phase4/00_phase4_overview.ipynb`: Phase 4 Overview & Paradigm Shift
+  - Optimization vs feed-forward paradigm comparison
+  - Pixel-aligned Gaussian concept introduction
+  - Method taxonomy (MVSplat, pixelSplat, DepthSplat)
+  - Quality vs speed trade-off visualization
+  - Toy Gaussian predictor demo (PyTorch)
+  - Back-projection from depth demonstration
+  - Training loop explanation
+  - Connection to Phase 1-3 concepts
+
+#### Source Code Modules
+- `src/feedforward/`: Feed-forward Gaussian Splatting module
+  - `cost_volume.py`: Cost Volume and Plane Sweeping implementation
+    - `PlaneSweeper`: Plane sweeping with homography warping
+    - `CostVolumeBuilder`: Multi-view cost volume aggregation
+    - `depth_regression_softargmin()`: Differentiable depth regression
+    - `homography_warp()`: Feature warping via homography
+    - `create_depth_planes()`: Depth hypothesis sampling
+  - `pixel_aligned.py`: Pixel-aligned Gaussian representation
+    - `PixelAlignedGaussians`: Structured Gaussian container
+    - `unproject_depth_to_3d()`: Depth map back-projection
+    - `create_pixel_grid()`: Pixel coordinate grid utility
+  - `gaussian_predictor.py`: Neural prediction heads
+    - `GaussianPredictionHeads`: Combined prediction module
+    - `DepthHead`: Per-pixel depth prediction
+    - `CovarianceHead`: Scale and rotation prediction (2D/3D modes)
+    - `OpacityHead`: Opacity prediction with sigmoid activation
+
+### Changed
+- Updated `DEVELOPMENT_ROADMAP.md` with Phase 4 progress
+- Updated `CHANGELOG.md` with Phase 4 additions
+
+---
+
 ## [0.5.0] - 2026-02-12
 
 ### Added
