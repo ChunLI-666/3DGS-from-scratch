@@ -92,12 +92,12 @@ def homography_warp(
     n = torch.tensor([0.0, 0.0, 1.0], device=device).reshape(1, 3, 1)
     n = n.expand(B, -1, -1)
 
-    # Homography: H = K_src @ (R - t @ n^T / d) @ K_ref^{-1}
-    # Simplified: H = K_src @ (R + t @ n^T / d) @ K_ref^{-1}
+    # Homography: H_mat = K_src @ (R - t @ n^T / d) @ K_ref^{-1}
+    # Simplified: H_mat = K_src @ (R + t @ n^T / d) @ K_ref^{-1}
     # (sign depends on convention)
     tn = torch.bmm(t, n.transpose(1, 2))  # [B, 3, 3]
-    H = R + tn / depth  # [B, 3, 3]
-    H = torch.bmm(K_src, torch.bmm(H, torch.inverse(K_ref)))  # [B, 3, 3]
+    H_mat = R + tn / depth  # [B, 3, 3]
+    H_mat = torch.bmm(K_src, torch.bmm(H_mat, torch.inverse(K_ref)))  # [B, 3, 3]
 
     # Create pixel coordinate grid for reference image
     u = torch.arange(W, device=device, dtype=torch.float32)
@@ -108,8 +108,8 @@ def homography_warp(
     pixel_coords = pixel_coords.unsqueeze(0).expand(B, -1, -1, -1)  # [B, 3, H, W]
     pixel_coords_flat = pixel_coords.reshape(B, 3, -1)  # [B, 3, H*W]
 
-    # Warp: source_coords = H @ ref_coords
-    src_coords = torch.bmm(H, pixel_coords_flat)  # [B, 3, H*W]
+    # Warp: source_coords = H_mat @ ref_coords
+    src_coords = torch.bmm(H_mat, pixel_coords_flat)  # [B, 3, H*W]
     src_coords = src_coords[:, :2] / (src_coords[:, 2:3] + 1e-8)  # [B, 2, H*W]
     src_coords = src_coords.reshape(B, 2, H, W)
 
